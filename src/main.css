@@ -1,0 +1,186 @@
+@import '@fonts/Muller/muller.css';
+
+:root {
+	--color-white: #fff;
+	--color-black-1: #000000;
+	--color-black-2: #414141;
+	--color-black-3: #091425;
+	--color-gray-1: #bbbbbb;
+	--color-gray-2: #8f8f8f;
+	--color-gray-3: #c8c8c8;
+	--color-gray-4: #3d3d4b;
+	--color-gray-5: #e0e0e0;
+	--color-orange-1: #ff7360;
+	--color-blue-1: #1627FE;
+	--color-purple-1: #626cef;
+	--color-purple-2: #dbdfff;
+	--color-purple-3: #f6f7ff;
+	--color-gradient-purple-1: linear-gradient(#aeb5f6 0%, #939dff 100%);
+	--color-gradient-orange-1: linear-gradient(#ff5d25 0%, #ff5f27 100%);
+
+	--weight-light: 300;
+	--weight-regular: 400;
+	--weight-medium: 500;
+	--weight-semibold: 600;
+	--weight-bold: 700;
+
+	--fontSize-12: 12px;
+	--fontSize-15: 15px;
+	--fontSize-16: 16px;
+	--fontSize-18: 18px;
+	--fontSize-28: 28px;
+	--fontSize-30: 30px;
+	--fontSize-34: 34px;
+
+	--fontFamily-Muller: 'Muller', 'Arial', sans-serif;
+
+	--font-title: normal var(--weight-medium) var(--fontSize-34)
+		var(--fontFamily-Muller);
+	--font-subtitle: normal var(--weight-medium) var(--fontSize-28)
+		var(--fontFamily-Muller);
+	--font-text-tall: normal var(--weight-regular) var(--fontSize-18)
+		var(--fontFamily-Muller);
+	--cont-text-tall-bold: normal var(--weight-medium) var(--fontSize-18)
+		var(--fontFamily-Muller);
+	--font-text: normal var(--weight-regular) var(--fontSize-15)
+		var(--fontFamily-Muller);
+	--font-text-bold: normal var(--weight-medium) var(--fontSize-15)
+		var(--fontFamily-Muller);
+	--font-caption-tall: normal var(--weight-regular) var(--fontSize-14)
+		var(--fontFamily-Muller);
+	--font-caption: normal var(--weight-medium) var(--fontSize-12)
+		var(--fontFamily-Muller);
+	--font-btn: normal var(--weight-regular) var(--fontSize-16)
+		var(--fontFamily-Muller);
+
+	--lineHeight-base: 1;
+	--lineHeight-title: 1;
+	--lineHeight-subtitle: 1;
+	--lineHeight-text-tall: 1;
+	--lineHeight-text: 1;
+	--lineHeight-caption-tall: 1;
+	--lineHeight-caption: 1;
+	--lineHeight-btn: 1;
+}
+
+[data-theme='light'] {
+	/* Background */
+	--color-background-primary: var(--color-white);
+	--color-background-secondary: var(--color-purple-3);
+
+	/* TextOrIcon */
+	--color-textoricon-primary: var(--color-black-1);
+	--color-textoricon-secondary: var(--color-white);
+	--color-textoricon-third: var(--color-black-2);
+	--color-textoricon-forth: var(--color-gray-1);
+	--color-textoricon-fifth: var(--color-purple-1);
+
+	/* BorderAndDivider */
+	--color-borderanddivider-primary: var(--color-purple-2);
+	--color-borderanddivider-secondary: var(--color-gradient-purple-1);
+	--color-borderanddivider-third: var(--color-gray-5);
+
+	/* Buttons */
+	--color-buttons-primary: var(--color-gradient-orange-1);
+
+	/* Functional */
+	--color-functional-error: var(--color-orange-1);
+
+	--color-functional-success: #12b857;
+	--color-functional-warning: #fac82e;
+
+	/* States */
+	--color-states-disabled-primary: var(--color-gray-3);
+	--color-states-focus-primary: var(--color-purple-1);
+	--color-states-hover-primary: var(--color-blue-1);
+	
+	--color-states-pressed-primary: #60666c;
+	--color-states-active-primary: #ffffff;
+}
+
+[data-theme='dark'] {
+}
+
+*,
+*::before,
+*::after {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	font-family: 'Arial', sans-serif;
+}
+
+li {
+	list-style: none;
+}
+
+a,
+img,
+time,
+span,
+input,
+button,
+text-area {
+	display: block;
+}
+
+img {
+	font: var(--font-text);
+	color: var(--color-textoricon-primary);
+}
+
+a {
+	color: inherit;
+	text-decoration: none;
+}
+
+main {
+	width: 100%;
+}
+footer {
+	width: 100%;
+}
+
+input,
+button,
+textarea {
+	background: none;
+	border: none;
+	font: inherit;
+}
+
+button,
+a {
+	cursor: pointer;
+}
+
+address {
+	font-style: normal;
+}
+
+html {
+	font-size: 16px;
+	scroll-behavior: smooth;
+	line-height: var(--lineHeight-base);
+}
+body,
+html {
+	overflow-x: hidden;
+	min-width: 100vw;
+	width: 100vw;
+	min-height: 100vh;
+	height: 100vh;
+}
+#app {
+	height: 100%;
+	width: 100%;
+}
+#root {
+	width: 100%;
+	height: 100%;
+}
+
+/* Код для того, чтобы расширение Last Pass не ломало вёрстку, хотя это очень странно, почему так происходит */
+/* div[data-lastpass-icon-root] {
+	display: none;
+} */

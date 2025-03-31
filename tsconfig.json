@@ -1,0 +1,38 @@
+{
+	"compilerOptions": {
+		"outDir": "./TSdist", // Все файлы, сгенерированные TS будут сохраняться в папке TSdist/
+		"rootDir": "./",
+		"baseUrl": "./",
+		"paths": {
+			"@/*": ["src/*"],
+			"@entities/*": ["src/entities/*"],
+			"@features/*": ["src/features/*"],
+			"@fonts/*": ["src/fonts/*"],
+			"@images": ["src/images/*"],
+			"@pages/*": ["src/pages/*"],
+			"@router/*": ["src/router/*"],
+			"@shared/*": ["src/shared/*"],
+			"@store/*": ["src/store/*"],
+			"@widgets/*": ["src/widgets/*"]
+		},
+		"target": "ES6",
+		"lib": ["ES2016", "DOM", "DOM.Iterable"],
+		"allowJs": false,
+		"jsx": "react-jsx",
+		"skipLibCheck": true,
+		"esModuleInterop": true,
+		"allowSyntheticDefaultImports": true,
+		"strict": true,
+		"forceConsistentCasingInFileNames": true,
+		"module": "ES6",
+		"moduleResolution": "Bundler",
+		"resolveJsonModule": true,
+		"isolatedModules": true,
+		"noEmit": true, // запрещает генерацию JS/CSS и т.д.
+		"incremental": true, // Включает создание .tsbuildinfo, для ускорения будущих сборок
+		"composite": false, // Отключает специфичные для проектов артефакты
+		"declaration": false, // Отключает генерацию .d.ts (на всякий случай)
+		"emitDeclarationOnly": false
+	},
+	"include": ["src/**/*", "vite.config.ts"]
+}

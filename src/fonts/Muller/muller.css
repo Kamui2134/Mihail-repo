@@ -1,0 +1,89 @@
+/* Muller Thin */
+@font-face {
+  font-family: 'Muller';
+  src: url('MullerThin.woff2') format('woff2'),
+       url('MullerThin.woff') format('woff');
+  font-weight: 100;
+  font-style: normal;
+}
+
+/* Muller UltraLight */
+@font-face {
+  font-family: 'Muller';
+  src: url('MullerUltraLight.woff2') format('woff2'),
+       url('MullerUltraLight.woff') format('woff');
+  font-weight: 200;
+  font-style: normal;
+}
+
+/* Muller Light */
+@font-face {
+  font-family: 'Muller';
+  src: url('MullerLight.woff2') format('woff2'),
+       url('MullerLight.woff') format('woff');
+  font-weight: 300;
+  font-style: normal;
+}
+
+/* Muller Regular */
+@font-face {
+  font-family: 'Muller';
+  src: url('MullerRegular.woff2') format('woff2'),
+       url('MullerRegular.woff') format('woff');
+  font-weight: 400;
+  font-style: normal;
+}
+
+/* Muller Medium */
+@font-face {
+  font-family: 'Muller';
+  src: url('MullerMedium.woff2') format('woff2'),
+       url('MullerMedium.woff') format('woff');
+  font-weight: 500;
+  font-style: normal;
+}
+
+/* Muller Bold */
+@font-face {
+  font-family: 'Muller';
+  src: url('MullerBold.woff2') format('woff2'),
+       url('MullerBold.woff') format('woff');
+  font-weight: 700;
+  font-style: normal;
+}
+
+/* Muller ExtraBold */
+@font-face {
+  font-family: 'Muller';
+  src: url('MullerExtraBold.woff2') format('woff2'),
+       url('MullerExtraBold.woff') format('woff');
+  font-weight: 800;
+  font-style: normal;
+}
+
+/* Muller Black */
+@font-face {
+  font-family: 'Muller';
+  src: url('MullerBlack.woff2') format('woff2'),
+       url('MullerBlack.woff') format('woff');
+  font-weight: 900;
+  font-style: normal;
+}
+
+/* Muller Heavy */
+@font-face {
+  font-family: 'Muller';
+  src: url('MullerHeavy.woff2') format('woff2'),
+       url('MullerHeavy.woff') format('woff');
+  font-weight: 900;
+  font-style: normal;
+}
+
+/* Muller UltraBlack */
+@font-face {
+  font-family: 'Muller';
+  src: url('MullerUltraBlack.woff2') format('woff2'),
+       url('MullerUltraBlack.woff') format('woff');
+  font-weight: 950;
+  font-style: normal;
+}
