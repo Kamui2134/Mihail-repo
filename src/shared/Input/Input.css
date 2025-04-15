@@ -1,0 +1,99 @@
+.input {
+	padding: 11px 19px;
+	background: linear-gradient(
+				var(--color-background-primary),
+				var(--color-background-primary)
+			)
+			padding-box,
+		var(--color-borderanddivider-secondary) border-box;
+	border-radius: 10px;
+	border: 1px solid var(--color-borderanddivider-primary);
+	font: var(--font-text-tall);
+	line-height: var(--lineHeight-text-tall);
+	color: var(--color-textoricon-third);
+	outline: none;
+}
+.input::placeholder {
+	font: var(--font-text-tall);
+	line-height: var(--lineHeight-text-tall);
+	color: var(--color-textoricon-forth);
+}
+.input:focus {
+	border: 2px solid transparent;
+	padding: 10px 18px;
+}
+
+/* FORM-INPUT */
+.input--form {
+	width: 100%;
+}
+.input--form.error {
+	border: 1px solid var(--color-functional-error);
+	padding: 11px 19px;
+}
+.input--form.success {
+	background: linear-gradient(
+				var(--color-background-secondary),
+				var(--color-background-secondary)
+			)
+			padding-box,
+		var(--color-borderanddivider-secondary) border-box;
+}
+.input-container {
+}
+.input-container__header {
+	display: flex;
+	justify-content: space-between;
+	margin-bottom: 8px;
+}
+.input-container__left {
+	display: flex;
+	gap: 4px;
+}
+.input-container__input-name {
+	font: var(--font-text-pre-tall);
+	line-height: var(--lineHeight-text-pre-tall);
+	color: var(--color-textoricon-third);
+}
+.input-container__success {
+	width: 16px;
+	height: 16px;
+	display: none;
+}
+.input-container__success.active {
+	display: block;
+}
+.input-container__right {
+}
+.input-container__error {
+	font: var(--font-caption-tall);
+	line-height: var(--lineHeight-caption-tall);
+	color: var(--color-functional-error);
+	transition: transform 200ms ease;
+	transform: scaleY(0);
+	will-change: transform;
+}
+.input-container__error.active {
+	transform: scaleY(1);
+}
+
+/* SUBMIT-INPUT */
+.input--submit {
+	font: var(--font-btn);
+	line-height: var(--lineHeight-btn);
+	background: var(--color-buttons-primary);
+	color: var(--color-textoricon-secondary);
+	padding: 13px;
+	width: 100%;
+	border-radius: 16px;
+	border: 0px solid transparent;
+	cursor: pointer;
+}
+.input--submit:focus {
+	border: 0px solid transparent;
+	padding: 13px;
+}
+.input--submit:disabled {
+	background: var(--color-states-disabled-primary);
+	cursor: wait;
+}

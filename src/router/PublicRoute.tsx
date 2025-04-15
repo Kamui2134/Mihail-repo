@@ -1,5 +1,5 @@
 import { Navigate, Outlet } from 'react-router-dom'
-import { isAuthenticated } from '@features/auth'
+import { isAuthenticated } from '@/features/keyCheck'
 
 const PublicRoute = ({ redirectPath = '/users' }) => {
 	if (isAuthenticated()) {

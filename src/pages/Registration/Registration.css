@@ -1,0 +1,21 @@
+.registration {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: var(--color-background-third);
+}
+.registration__container {
+    width: min(1200px, 100%);
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 108px;
+}
+.registration__form-container {
+    flex-grow: 1;
+}
+.registration__img {
+    object-fit: contain;
+}

@@ -2,7 +2,7 @@
 import { createBrowserRouter, RouterProvider, Navigate } from 'react-router-dom'
 import ProtectedRoute from './ProtectedRoute'
 import PublicRoute from './PublicRoute'
-import { Registration, Login, Users, NotFound } from '@pages/index'
+import { Login, Users, NotFound, Registration } from '@pages/index'
 
 const router = createBrowserRouter([
 	{

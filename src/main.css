@@ -1,5 +1,3 @@
-@import '@fonts/Muller/muller.css';
-
 :root {
 	--color-white: #fff;
 	--color-black-1: #000000;
@@ -11,12 +9,27 @@
 	--color-gray-4: #3d3d4b;
 	--color-gray-5: #e0e0e0;
 	--color-orange-1: #ff7360;
-	--color-blue-1: #1627FE;
+	--color-blue-1: #1627fe;
 	--color-purple-1: #626cef;
 	--color-purple-2: #dbdfff;
 	--color-purple-3: #f6f7ff;
-	--color-gradient-purple-1: linear-gradient(#aeb5f6 0%, #939dff 100%);
-	--color-gradient-orange-1: linear-gradient(#ff5d25 0%, #ff5f27 100%);
+	--color-gradient-purple-1: linear-gradient(
+		to right,
+		#aeb5f6 0%,
+		#939dff 100%
+	);
+	--color-gradient-orange-1: linear-gradient(
+		to right,
+		#ff5d25 0%,
+		#ff5f27 100%
+	);
+	--color-gradient-pink-1: linear-gradient(
+		30deg,
+		#f7f7f7 0%,
+		#eef0f2 47%,
+		#f7eaf1 75%,
+		#f4f1ff 100%
+	);
 
 	--weight-light: 300;
 	--weight-regular: 400;
@@ -32,7 +45,7 @@
 	--fontSize-30: 30px;
 	--fontSize-34: 34px;
 
-	--fontFamily-Muller: 'Muller', 'Arial', sans-serif;
+	--fontFamily-Muller: 'Inter', 'Arial', sans-serif;
 
 	--font-title: normal var(--weight-medium) var(--fontSize-34)
 		var(--fontFamily-Muller);
@@ -40,7 +53,9 @@
 		var(--fontFamily-Muller);
 	--font-text-tall: normal var(--weight-regular) var(--fontSize-18)
 		var(--fontFamily-Muller);
-	--cont-text-tall-bold: normal var(--weight-medium) var(--fontSize-18)
+	--font-text-tall-bold: normal var(--weight-medium) var(--fontSize-18)
+		var(--fontFamily-Muller);
+	--font-text-pre-tall: normal var(--weight-medium) var(--fontSize-16)
 		var(--fontFamily-Muller);
 	--font-text: normal var(--weight-regular) var(--fontSize-15)
 		var(--fontFamily-Muller);
@@ -57,6 +72,7 @@
 	--lineHeight-title: 1;
 	--lineHeight-subtitle: 1;
 	--lineHeight-text-tall: 1;
+	--lineHeight-text-pre-tall: 1;
 	--lineHeight-text: 1;
 	--lineHeight-caption-tall: 1;
 	--lineHeight-caption: 1;
@@ -67,6 +83,7 @@
 	/* Background */
 	--color-background-primary: var(--color-white);
 	--color-background-secondary: var(--color-purple-3);
+	--color-background-third: var(--color-gradient-pink-1);
 
 	/* TextOrIcon */
 	--color-textoricon-primary: var(--color-black-1);
@@ -93,7 +110,7 @@
 	--color-states-disabled-primary: var(--color-gray-3);
 	--color-states-focus-primary: var(--color-purple-1);
 	--color-states-hover-primary: var(--color-blue-1);
-	
+
 	--color-states-pressed-primary: #60666c;
 	--color-states-active-primary: #ffffff;
 }
@@ -162,25 +179,15 @@ html {
 	font-size: 16px;
 	scroll-behavior: smooth;
 	line-height: var(--lineHeight-base);
-}
-body,
-html {
+	overscroll-behavior: contain;
 	overflow-x: hidden;
-	min-width: 100vw;
-	width: 100vw;
-	min-height: 100vh;
-	height: 100vh;
-}
-#app {
-	height: 100%;
-	width: 100%;
-}
-#root {
-	width: 100%;
 	height: 100%;
 }
 
-/* Код для того, чтобы расширение Last Pass не ломало вёрстку, хотя это очень странно, почему так происходит */
-/* div[data-lastpass-icon-root] {
-	display: none;
-} */
+body {
+	height: 100%;
+}
+
+#root {
+	height: 100%;
+}
