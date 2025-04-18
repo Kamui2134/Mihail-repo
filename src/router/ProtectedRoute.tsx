@@ -1,5 +1,5 @@
 import { Navigate, Outlet } from 'react-router-dom'
-import { isAuthenticated } from '@features/index'
+import { isAuthenticated } from '@features'
 
 const ProtectedRoute = ({ redirectPath = '/registration' }) => {
 	if (!isAuthenticated()) {

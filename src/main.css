@@ -31,6 +31,8 @@
 		#f4f1ff 100%
 	);
 
+	--color-translucent-1: rgba(0, 0, 0, 0.4);
+
 	--weight-light: 300;
 	--weight-regular: 400;
 	--weight-medium: 500;
@@ -84,6 +86,7 @@
 	--color-background-primary: var(--color-white);
 	--color-background-secondary: var(--color-purple-3);
 	--color-background-third: var(--color-gradient-pink-1);
+	--color-background-fourth: var(--color-translucent-1);
 
 	/* TextOrIcon */
 	--color-textoricon-primary: var(--color-black-1);
@@ -180,14 +183,15 @@ html {
 	scroll-behavior: smooth;
 	line-height: var(--lineHeight-base);
 	overscroll-behavior: contain;
-	overflow-x: hidden;
-	height: 100%;
 }
 
 body {
 	height: 100%;
+	min-height: 100vh;
 }
 
 #root {
+	width: 100%;
 	height: 100%;
+	min-height: 100vh;
 }

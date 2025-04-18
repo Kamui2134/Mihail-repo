@@ -4,18 +4,22 @@ import path from 'path'
 
 export default defineConfig({
 	plugins: [react()],
+	server: {
+		port: 5173,
+		open: '/'
+	},
 	resolve: {
 		alias: {
 			'@': path.resolve(__dirname, 'src'),
-			'@entities': path.resolve(__dirname, 'src/entities'),
-			'@features': path.resolve(__dirname, 'src/features'),
-			'@fonts': path.resolve(__dirname, 'src/fonts'),
+			'@entities': path.resolve(__dirname, 'src/entities/index.ts'),
+			'@features': path.resolve(__dirname, 'src/features/index.ts'),
+			'@fonts': path.resolve(__dirname, 'src/fonts/index.ts'),
 			'@images': path.resolve(__dirname, 'src/images'),
-			'@pages': path.resolve(__dirname, 'src/pages'),
-			'@router': path.resolve(__dirname, 'src/router'),
-			'@shared': path.resolve(__dirname, 'src/shared'),
-			'@store': path.resolve(__dirname, 'src/store'),
-			'@widgets': path.resolve(__dirname, 'src/widgets'),
+			'@pages': path.resolve(__dirname, 'src/pages/index.ts'),
+			'@router': path.resolve(__dirname, 'src/router/index.ts'),
+			'@shared': path.resolve(__dirname, 'src/shared/index.ts'),
+			'@store': path.resolve(__dirname, 'src/store/index.ts'),
+			'@widgets': path.resolve(__dirname, 'src/widgets/index.ts'),
 		},
 	},
 })

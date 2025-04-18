@@ -1,62 +1,59 @@
-import { useState, ChangeEvent, FormEvent } from 'react'
 import { Link } from 'react-router-dom'
 import { Image } from '@shared'
 import './RegistrationForm.css'
 import { FormInput, SubmitInput } from '@shared'
 import Logo from '@images/logo.svg'
 import {
-	useEmailValidation,
-	useUsernameValidation,
-	usePasswordValidation,
+	useRegistrationUserEmailValidation,
+	useRegistrationUsernameValidation,
+	useRegistrationPasswordValidation,
+	useRegistrationBusinessEmailValidation,
+	useRegistrationBusinessNameValidation,
+	useRegistrationBusinessWebsiteValidation,
+	useRegistrationFormSubmission,
 } from '@features'
 
 export default function RegistrationForm() {
 	const {
-		email,
-		setEmail,
+		userEmail,
 		error: emailError,
 		isValid: emailIsValid,
 		handleChange: handleEmailChange,
-	} = useEmailValidation()
+	} = useRegistrationUserEmailValidation()
 	const {
 		username,
-		setUsername,
-		error: usernameError,
-		isValid: usernameIsValid,
-		handleChange: handleUsernameChange,
-	} = useUsernameValidation()
+		error: nameError,
+		isValid: nameIsValid,
+		handleChange: handleNameChange,
+	} = useRegistrationUsernameValidation()
 	const {
 		password,
-		setPassword,
 		error: passwordError,
 		isValid: passwordIsValid,
 		handleChange: handlePasswordChange,
-	} = usePasswordValidation()
-	const [isDisabled, setIsDisabled] = useState<boolean>(false)
-
-	function userNameChangeHandler(event: ChangeEvent<HTMLInputElement>) {
-		setUsername(event.target.value)
-		handleUsernameChange(event.target.value)
-	}
-	function emailChangeHandler(event: ChangeEvent<HTMLInputElement>) {
-		setEmail(event.target.value)
-		handleEmailChange(event.target.value)
-	}
-	function passwordChangeHandler(event: ChangeEvent<HTMLInputElement>) {
-		setPassword(event.target.value)
-		handlePasswordChange(event.target.value)
-	}
-	function submitForm (event: FormEvent<HTMLFormElement>) {
-		event.preventDefault()
-		setIsDisabled(true)
-		
-	}
+	} = useRegistrationPasswordValidation()
+	const {
+		businessEmail,
+		error: businessEmailError,
+		isValid: businessEmailIsValid,
+		handleChange: handleBusinessEmailChange,
+	} = useRegistrationBusinessEmailValidation()
+	const {
+		businessName,
+		error: businessNameError,
+		isValid: businessNameIsValid,
+		handleChange: handleBusinessNameChange,
+	} = useRegistrationBusinessNameValidation()
+	const {
+		businessWebsite,
+		error: businessWebsiteError,
+		isValid: businessWebsiteIsValid,
+		handleChange: handleBusinessWebsiteChange,
+	} = useRegistrationBusinessWebsiteValidation()
+	const { isDisabled, submitForm, fieldNames } = useRegistrationFormSubmission()
 
 	return (
-		<form
-			className='registration-form'
-			onSubmit={submitForm}
-		>
+		<form className='registration-form' onSubmit={submitForm}>
 			<Image
 				className='registration-form__logo'
 				src={Logo}
@@ -68,34 +65,64 @@ export default function RegistrationForm() {
 			<h1 className='registration-form__title'>Регистрация</h1>
 			<div className='registration-form__inputs'>
 				<FormInput
-					value={email}
-					onChange={emailChangeHandler}
+					value={userEmail}
+					onChange={handleEmailChange}
 					type='text'
-					name='lg_1b'
+					name={fieldNames.userEmail}
 					placeholder='text'
-					inputName='Email:'
+					inputName='Email пользователя:'
 					errorValue={emailError}
 					isValid={emailIsValid}
 				/>
 				<FormInput
 					value={username}
-					onChange={userNameChangeHandler}
+					onChange={handleNameChange}
 					type='text'
-					name='ld_12'
+					name={fieldNames.username}
 					placeholder='text'
 					inputName='Имя:'
-					errorValue={usernameError}
-					isValid={usernameIsValid}
+					errorValue={nameError}
+					isValid={nameIsValid}
 				/>
 				<FormInput
 					value={password}
-					onChange={passwordChangeHandler}
+					onChange={handlePasswordChange}
 					type='text'
-					name='gs_14'
+					name={fieldNames.password}
 					placeholder='text'
 					inputName='Пароль:'
 					errorValue={passwordError}
 					isValid={passwordIsValid}
+				/>
+				<FormInput
+					value={businessEmail}
+					onChange={handleBusinessEmailChange}
+					type='text'
+					name={fieldNames.businessEmail}
+					placeholder='text'
+					inputName='Email бизнеса:'
+					errorValue={businessEmailError}
+					isValid={businessEmailIsValid}
+				/>
+				<FormInput
+					value={businessName}
+					onChange={handleBusinessNameChange}
+					type='text'
+					name={fieldNames.businessName}
+					placeholder='text'
+					inputName='Название организации:'
+					errorValue={businessNameError}
+					isValid={businessNameIsValid}
+				/>
+				<FormInput
+					value={businessWebsite}
+					onChange={handleBusinessWebsiteChange}
+					type='text'
+					name={fieldNames.businessWebsite}
+					placeholder='text'
+					inputName='Сайт компании:'
+					errorValue={businessWebsiteError}
+					isValid={businessWebsiteIsValid}
 				/>
 			</div>
 			<div className='registration-form__btns'>

@@ -1,4 +1,7 @@
+import { businessDataType, userDataType } from '@entities'
 import axios, { AxiosInstance, AxiosRequestConfig, AxiosResponse } from 'axios'
+
+const API_URL = 'http://localhost:1337/api/v1'
 
 class ApiClient {
 	private readonly axiosInstance: AxiosInstance
@@ -10,28 +13,60 @@ class ApiClient {
 			headers: {
 				'Content-Type': 'application/json',
 			},
+			withCredentials: true,
 		})
+
+		this.axiosInstance.interceptors.response.use(
+			res => {
+				console.log(res.status, 'int res')
+				return res
+			},
+			error => {
+				if (axios.isAxiosError(error)) {
+					if (error.response?.status === 401) {
+						// Обработка ошибки 401, отсутствие токена авторизации для перекидывания на страницу авторизации
+					}
+				}
+				return Promise.reject(error)
+			}
+		)
 	}
 
-	public async get<T>(url: string, config?: AxiosRequestConfig): Promise<T> {
-		const response: AxiosResponse<T> = await this.axiosInstance.get(url, config)
-		return response.data
+	private async get<T>(
+		url: string,
+		config?: AxiosRequestConfig
+	): Promise<AxiosResponse<T>> {
+		return this.axiosInstance.get<T>(url, config)
 	}
 
-	public async post<T>(
+	private async post<T>(
 		url: string,
 		data?: unknown,
 		config?: AxiosRequestConfig
-	): Promise<T> {
-		const response: AxiosResponse<T> = await this.axiosInstance.post(
-			url,
-			data,
-			config
-		)
-		return response.data
+	): Promise<AxiosResponse<T>> {
+		return this.axiosInstance.post<T>(url, data, config)
 	}
 
-	// Добавьте другие методы (put, delete и т.д.)
+	public async registerUser(data: userDataType): Promise<AxiosResponse<any>> {
+		return this.post('/auth/customers/register', data)
+	}
+
+	public async createBusiness(
+		data: businessDataType
+	): Promise<AxiosResponse<any>> {
+		return this.post('/businesses', data)
+	}
+
+	public async confirmUser(
+		user_id: number,
+		code: number
+	): Promise<AxiosResponse<any>> {
+		return this.post(`/auth/users/${user_id}/confirm`, null, {
+			params: {
+				code: code,
+			},
+		})
+	}
 }
 
-export const api = new ApiClient('https://your-api.com/api/v1')
+export const api = new ApiClient(API_URL)

@@ -23,7 +23,6 @@
 }
 .blur-load.loaded > img {
 	opacity: 1;
-	position: absolute;
 }
 
 @keyframes pulse {

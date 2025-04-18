@@ -64,9 +64,7 @@ export default function Image({
 			style={{
 				backgroundImage: `url(${smallVersionSrc})`,
 				backgroundSize: bgSize,
-				backgroundPosition: bgPosition,
-				width,
-				height,
+				backgroundPosition: bgPosition
 			}}
 		>
 			<img
