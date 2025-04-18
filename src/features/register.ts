@@ -189,21 +189,20 @@ export const useRegistrationFormSubmission = () => {
 				name: formData.get(fieldNames.current.username) as string,
 				password: formData.get(fieldNames.current.password) as string,
 				language: 'ru',
-				timezone: 'GMT+3',
+				timezone: 'Russia/Moscow',
 			}
-			const businessData = useRef<businessDataType>({
-				inn: 'INN',
-				name: formData.get(fieldNames.current.businessName) as string,
-				socials: {},
-				user_id: '',
-				website: formData.get(fieldNames.current.businessWebsite) as string,
-			})
-
+			// const businessData = useRef<businessDataType>({
+			// 	inn: 'INN',
+			// 	name: formData.get(fieldNames.current.businessName) as string,
+			// 	socials: {},
+			// 	user_id: '',
+			// 	website: formData.get(fieldNames.current.businessWebsite) as string,
+			// })
 			const response = await api.registerUser(userData)
 			if (response.status >= 200 && response.status < 300) {
 				console.log(response.data) // Данные ответа
 			} else {
-				// Обработка других статусов (например, 4xx)
+				console.log(response.status)
 			}
 		} catch (err) {
 			if (axios.isAxiosError(err)) {

@@ -13,7 +13,6 @@ class ApiClient {
 			headers: {
 				'Content-Type': 'application/json',
 			},
-			withCredentials: true,
 		})
 
 		this.axiosInstance.interceptors.response.use(
@@ -48,7 +47,7 @@ class ApiClient {
 	}
 
 	public async registerUser(data: userDataType): Promise<AxiosResponse<any>> {
-		return this.post('/auth/customers/register', data)
+		return this.post('/auth/users/register', data)
 	}
 
 	public async createBusiness(
