@@ -4,7 +4,6 @@
 		"rootDir": "./",
 		"baseUrl": "./",
 		"paths": {
-			"@/*": ["src/*"],
 			"@entities": ["src/entities/index.ts"],
 			"@features": ["src/features/index.ts"],
 			"@fonts": ["src/fonts/index.ts"],
@@ -13,7 +12,8 @@
 			"@router": ["src/router/index.ts"],
 			"@shared": ["src/shared/index.ts"],
 			"@store": ["src/store/index.ts"],
-			"@widgets": ["src/widgets/index.ts"]
+			"@widgets": ["src/widgets/index.ts"],
+			"@/*": ["src/*"]
 		},
 		"target": "ES6",
 		"lib": ["ES2016", "DOM", "DOM.Iterable"],

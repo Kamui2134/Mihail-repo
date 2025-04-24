@@ -21,5 +21,5 @@
 .registration__img {
 	object-fit: contain;
 	height: 765px;
-	width: 672px;
+	width: min(672px, 100%);
 }

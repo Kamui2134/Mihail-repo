@@ -47,28 +47,28 @@
 	--fontSize-30: 30px;
 	--fontSize-34: 34px;
 
-	--fontFamily-Muller: 'Inter', 'Arial', sans-serif;
+	--fontFamily-Inter: 'Inter', 'Arial', sans-serif;
 
 	--font-title: normal var(--weight-medium) var(--fontSize-34)
-		var(--fontFamily-Muller);
+		var(--fontFamily-Inter);
 	--font-subtitle: normal var(--weight-medium) var(--fontSize-28)
-		var(--fontFamily-Muller);
+		var(--fontFamily-Inter);
 	--font-text-tall: normal var(--weight-regular) var(--fontSize-18)
-		var(--fontFamily-Muller);
+		var(--fontFamily-Inter);
 	--font-text-tall-bold: normal var(--weight-medium) var(--fontSize-18)
-		var(--fontFamily-Muller);
+		var(--fontFamily-Inter);
 	--font-text-pre-tall: normal var(--weight-medium) var(--fontSize-16)
-		var(--fontFamily-Muller);
+		var(--fontFamily-Inter);
 	--font-text: normal var(--weight-regular) var(--fontSize-15)
-		var(--fontFamily-Muller);
+		var(--fontFamily-Inter);
 	--font-text-bold: normal var(--weight-medium) var(--fontSize-15)
-		var(--fontFamily-Muller);
+		var(--fontFamily-Inter);
 	--font-caption-tall: normal var(--weight-regular) var(--fontSize-14)
-		var(--fontFamily-Muller);
+		var(--fontFamily-Inter);
 	--font-caption: normal var(--weight-medium) var(--fontSize-12)
-		var(--fontFamily-Muller);
+		var(--fontFamily-Inter);
 	--font-btn: normal var(--weight-regular) var(--fontSize-16)
-		var(--fontFamily-Muller);
+		var(--fontFamily-Inter);
 
 	--lineHeight-base: 1;
 	--lineHeight-title: 1;

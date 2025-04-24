@@ -27,13 +27,9 @@ const router = createBrowserRouter([
 			},
 			{
 				path: '*',
-				element: <Navigate to='/users' replace />,
+				element: <Navigate to='/dashboard' replace />,
 			},
 		],
-	},
-	{
-		path: '*',
-		element: <NotFound />,
 	},
 ])
 

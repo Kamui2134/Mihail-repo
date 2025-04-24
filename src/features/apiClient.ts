@@ -53,14 +53,18 @@ class ApiClient {
 	public async createBusiness(
 		data: businessDataType
 	): Promise<AxiosResponse<any>> {
-		return this.post('/businesses', data)
+		return this.post('/businesses/', data)
+	}
+
+	public async sendCode(user_id: string): Promise<AxiosResponse<any>> {
+		return this.post(`/auth/users/${user_id}/send-code`)
 	}
 
 	public async confirmUser(
-		user_id: number,
-		code: number
+		user_id: string,
+		code: string
 	): Promise<AxiosResponse<any>> {
-		return this.post(`/auth/users/${user_id}/confirm`, null, {
+		return this.get(`/auth/users/${user_id}/confirm`, {
 			params: {
 				code: code,
 			},

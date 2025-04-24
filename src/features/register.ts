@@ -1,7 +1,8 @@
 import { useState, useCallback, ChangeEvent, FormEvent, useRef } from 'react'
 import { api, useDebounce } from '@features'
-import axios from 'axios'
 import { userDataType, businessDataType, FieldNamesType } from '@entities'
+import { toggleRegistrationModal, useAppDispatch } from '@/store'
+import { useNavigate } from 'react-router-dom'
 
 export const useRegistrationUserEmailValidation = () => {
 	const [userEmail, setUserEmail] = useState<string>('')
@@ -167,6 +168,7 @@ export const useRegistrationBusinessWebsiteValidation = () => {
 
 export const useRegistrationFormSubmission = () => {
 	const [isDisabled, setIsDisabled] = useState<boolean>(false)
+	const dispatch = useAppDispatch()
 	// Генерируем и сохраняем имена один раз при инициализации для небольшой защиты от ботов
 	const fieldNames = useRef<FieldNamesType>({
 		userEmail: 'ld_12',
@@ -183,33 +185,83 @@ export const useRegistrationFormSubmission = () => {
 
 		try {
 			const formData = new FormData(event.currentTarget)
+			const getField = (name: keyof FieldNamesType) =>
+				formData.get(fieldNames.current[name]) as string
 
-			const userData = {
-				email: formData.get(fieldNames.current.userEmail) as string,
-				name: formData.get(fieldNames.current.username) as string,
-				password: formData.get(fieldNames.current.password) as string,
+			const userData: userDataType = {
+				email: getField('userEmail'),
+				name: getField('username'),
+				password: getField('password'),
 				language: 'ru',
-				timezone: 'Russia/Moscow',
+				timezone: 'Europe/Moscow',
 			}
-			// const businessData = useRef<businessDataType>({
-			// 	inn: 'INN',
-			// 	name: formData.get(fieldNames.current.businessName) as string,
-			// 	socials: {},
-			// 	user_id: '',
-			// 	website: formData.get(fieldNames.current.businessWebsite) as string,
-			// })
-			const response = await api.registerUser(userData)
-			if (response.status >= 200 && response.status < 300) {
-				console.log(response.data) // Данные ответа
-			} else {
-				console.log(response.status)
+
+			if (localStorage.hasOwnProperty('user_id')) {
+				const registerResponse = await api.registerUser(userData)
+				switch (registerResponse.status) {
+					case 200:
+						localStorage.setItem('user_id', registerResponse.data.data.id)
+						break
+					case 400:
+						throw new Error('400, Bad Response')
+						break
+					case 404:
+						throw new Error('404, Not found')
+						break
+					default:
+						throw new Error(registerResponse.status.toString())
+						break
+				}
 			}
-		} catch (err) {
-			if (axios.isAxiosError(err)) {
-				// Более информативное сообщение об ошибке
-				alert(err.message)
-				// Можно также получить статус ошибки: err.response?.status
+
+			const businessData: businessDataType = {
+				inn: '245010099101',
+				name: getField('businessName'),
+				socials: {},
+				user_id: localStorage.getItem('user_id')!,
+				website: getField('businessWebsite'),
 			}
+
+			const businessResponse = await api.createBusiness(businessData)
+			switch (businessResponse.status) {
+				case 200:
+					console.log('200 is Good!')
+					break
+				case 400:
+					throw new Error('400, Bad Response')
+					break
+				case 404:
+					throw new Error('404, Not found')
+					break
+				default:
+					throw new Error(businessResponse.status.toString())
+					break
+			}
+
+			const sendCodeResponse = await api.sendCode(
+				localStorage.getItem('user_id')!
+			)
+			switch (sendCodeResponse.status) {
+				case 200:
+					console.log('200 is Good!')
+					dispatch(toggleRegistrationModal())
+					break
+				case 204:
+					console.log('204 is Good!')
+					dispatch(toggleRegistrationModal())
+					break
+				case 400:
+					throw new Error('400, Bad Response')
+					break
+				case 404:
+					throw new Error('404, Not found')
+					break
+				default:
+					throw new Error(sendCodeResponse.status.toString())
+					break
+			}
+		} catch (err: any) {
+			alert(err)
 		} finally {
 			setIsDisabled(false)
 		}
@@ -219,5 +271,62 @@ export const useRegistrationFormSubmission = () => {
 		isDisabled,
 		submitForm,
 		fieldNames: fieldNames.current,
+	}
+}
+
+// хук для модального окна подтверждения кода
+export const useRegistrationCodeConfirmation = () => {
+	const [code, setCode] = useState<string>('')
+	const [isDisabled, setIsDisabled] = useState<boolean>(false)
+	const navigate = useNavigate()
+	const dispatch = useAppDispatch()
+
+	const codeValidation = (event: ChangeEvent<HTMLInputElement>) => {
+		let value = event.target.value
+		value = value.replace(/\D/g, '')
+		setCode(value)
+	}
+
+	const confirmCode = async (event: FormEvent<HTMLFormElement>) => {
+		event.preventDefault()
+		setIsDisabled(true)
+
+		try {
+			const confirmUserResponse = await api.confirmUser(
+				localStorage.getItem('user_id')!,
+				code
+			)
+			switch (confirmUserResponse.status) {
+				case 200:
+					console.log('200 is Good!')
+					dispatch(toggleRegistrationModal())
+					navigate('/users')
+					break
+				case 204:
+					console.log('204 is Good!')
+					break
+				case 400:
+					throw new Error('400, Bad Response')
+					break
+				case 404:
+					throw new Error('404, Not found')
+					break
+				default:
+					throw new Error(confirmUserResponse.status.toString())
+					break
+			}
+		} catch (err: any) {
+			alert(err)
+		} finally {
+			setIsDisabled(false)
+			setCode('')
+		}
+	}
+
+	return {
+		code,
+		isDisabled,
+		codeValidation,
+		confirmCode,
 	}
 }

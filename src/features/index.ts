@@ -6,6 +6,7 @@ export {
 	useRegistrationBusinessNameValidation,
 	useRegistrationBusinessWebsiteValidation,
 	useRegistrationFormSubmission,
+	useRegistrationCodeConfirmation,
 } from './register'
 export { isAuthenticated, logout } from './keyCheck'
 export { useDebounce } from './useDebounce'

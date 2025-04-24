@@ -5,17 +5,19 @@ interface registrationState {
 }
 
 const initialState: registrationState = {
-	isModalActive: false
+	isModalActive: false,
 }
 
 export const registrationSlice = createSlice({
-	name: 'register',
+	name: 'registration',
 	initialState,
 	reducers: {
-		toggleModal: (state) => {
+		toggleRegistrationModal: state => {
 			state.isModalActive = !state.isModalActive
-		}
+		},
 	},
 })
+
+export const { toggleRegistrationModal } = registrationSlice.actions
 
 export default registrationSlice.reducer

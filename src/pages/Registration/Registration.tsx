@@ -1,6 +1,6 @@
 import './Registration.css'
 import { Image } from '@shared'
-import { RegistrationForm } from '@widgets'
+import { ConfirmCodeModal, RegistrationForm } from '@widgets'
 import SitePreview from '@images/site-preview.png'
 
 export default function Registration() {
@@ -18,6 +18,7 @@ export default function Registration() {
 					height={765}
 				/>
 			</div>
+			<ConfirmCodeModal />
 		</main>
 	)
 }

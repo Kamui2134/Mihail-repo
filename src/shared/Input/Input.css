@@ -22,6 +22,11 @@
 	border: 2px solid transparent;
 	padding: 10px 18px;
 }
+/* Для переопределения стилей автозаполнения */
+.input:-webkit-autofill {
+	-webkit-box-shadow: 0 0 0px 1000px var(--color-background-primary) inset;
+	-webkit-text-fill-color: var(--color-textoricon-third);
+}
 
 /* FORM-INPUT */
 .input--form {
@@ -39,6 +44,14 @@
 			padding-box,
 		var(--color-borderanddivider-secondary) border-box;
 }
+/* Ну эт вообще пиздец я рот ебал этих градиентных border и автоподстановок, надо обсудить это, а то разницы никакой, а стили ебать нахуй идут просто */
+.input--form:-webkit-autofill:focus {
+	border: 2px solid #939dff;
+}
+.input.success:-webkit-autofill {
+	-webkit-box-shadow: 0 0 0px 1000px var(--color-background-secondary) inset;
+}
+
 .input-container {
 }
 .input-container__header {
