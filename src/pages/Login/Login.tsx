@@ -1,24 +1,24 @@
-import { ForgetPasswordModal } from '@widgets'
-import SitePreview from '@images/'
 import './Login.css'
+import { Image } from '@shared'
+import { ForgetPasswordModal, LoginForm } from '@widgets'
+import SitePreview from '@images/site-preview.png'
 
 export default function Login() {
-  return (
-    <main className='registration'>
-			<div className='registration__container'>
-				<div className='registration__form-container'>
-					<RegistrationForm />
+	return (
+		<main className='login'>
+			<div className='login__container'>
+				<div className='login__form-container'>
+					<LoginForm />
 				</div>
 				<Image
-					className='registration__img'
+					className='login__img'
 					src={SitePreview}
 					alt='website preview'
 					width={672}
 					height={765}
 				/>
 			</div>
-			<ConfirmCodeModal />
+			<ForgetPasswordModal />
 		</main>
 	)
-  )
 }

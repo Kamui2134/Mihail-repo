@@ -1,4 +1,4 @@
-import { businessDataType, userDataType } from '@entities'
+import { LoginUserDataType, RegistrationBusinessDataType, RegistrationUserDataType } from '@entities'
 import axios, { AxiosInstance, AxiosRequestConfig, AxiosResponse } from 'axios'
 
 const API_URL = 'http://localhost:1337/api/v1'
@@ -46,18 +46,26 @@ class ApiClient {
 		return this.axiosInstance.post<T>(url, data, config)
 	}
 
-	public async registerUser(data: userDataType): Promise<AxiosResponse<any>> {
+	public async registerUser(
+		data: RegistrationUserDataType
+	): Promise<AxiosResponse<any>> {
 		return this.post('/auth/users/register', data)
 	}
 
 	public async createBusiness(
-		data: businessDataType
+		data: RegistrationBusinessDataType
 	): Promise<AxiosResponse<any>> {
 		return this.post('/businesses/', data)
 	}
 
 	public async sendCode(user_id: string): Promise<AxiosResponse<any>> {
 		return this.post(`/auth/users/${user_id}/send-code`)
+	}
+
+	public async loginUser(
+		data: LoginUserDataType
+	): Promise<AxiosResponse<any>> {
+		return this.post('/auth/users/login', data)
 	}
 
 	public async confirmUser(

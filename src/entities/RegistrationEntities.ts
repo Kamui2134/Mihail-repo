@@ -1,4 +1,4 @@
-export type FieldNamesType = {
+export type RegistrationFieldNamesType = {
 	userEmail: string
 	username: string
 	password: string
@@ -6,14 +6,14 @@ export type FieldNamesType = {
 	businessName: string
 	businessWebsite: string
 }
-export type userDataType = {
+export type RegistrationUserDataType = {
 	email: string
 	language: string
 	name: string
 	password: string
 	timezone: string
 }
-export type businessDataType = {
+export type RegistrationBusinessDataType = {
 	inn: string
 	name: string
 	socials: {}

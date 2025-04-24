@@ -1,7 +1,7 @@
 import { useState, useCallback, ChangeEvent, FormEvent, useRef } from 'react'
 import { api, useDebounce } from '@features'
-import { userDataType, businessDataType, FieldNamesType } from '@entities'
-import { toggleRegistrationModal, useAppDispatch } from '@/store'
+import { RegistrationUserDataType, RegistrationBusinessDataType, RegistrationFieldNamesType } from '@entities'
+import { toggleRegistrationModal, useAppDispatch } from '@store'
 import { useNavigate } from 'react-router-dom'
 
 export const useRegistrationUserEmailValidation = () => {
@@ -170,7 +170,7 @@ export const useRegistrationFormSubmission = () => {
 	const [isDisabled, setIsDisabled] = useState<boolean>(false)
 	const dispatch = useAppDispatch()
 	// Генерируем и сохраняем имена один раз при инициализации для небольшой защиты от ботов
-	const fieldNames = useRef<FieldNamesType>({
+	const fieldNames = useRef<RegistrationFieldNamesType>({
 		userEmail: 'ld_12',
 		username: 'gd_43',
 		password: 'bs_14',
@@ -185,10 +185,10 @@ export const useRegistrationFormSubmission = () => {
 
 		try {
 			const formData = new FormData(event.currentTarget)
-			const getField = (name: keyof FieldNamesType) =>
+			const getField = (name: keyof RegistrationFieldNamesType) =>
 				formData.get(fieldNames.current[name]) as string
 
-			const userData: userDataType = {
+			const userData: RegistrationUserDataType = {
 				email: getField('userEmail'),
 				name: getField('username'),
 				password: getField('password'),
@@ -214,7 +214,7 @@ export const useRegistrationFormSubmission = () => {
 				}
 			}
 
-			const businessData: businessDataType = {
+			const businessData: RegistrationBusinessDataType = {
 				inn: '245010099101',
 				name: getField('businessName'),
 				socials: {},
