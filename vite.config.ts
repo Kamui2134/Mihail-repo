@@ -13,7 +13,7 @@ export default defineConfig({
 			'@entities': path.resolve(__dirname, 'src/entities/index.ts'),
 			'@features': path.resolve(__dirname, 'src/features/index.ts'),
 			'@fonts': path.resolve(__dirname, 'src/fonts/index.ts'),
-			'@images': path.resolve(__dirname, 'src/images'),
+			'@images': path.resolve(__dirname, 'src/images/'),
 			'@pages': path.resolve(__dirname, 'src/pages/index.ts'),
 			'@router': path.resolve(__dirname, 'src/router/index.ts'),
 			'@shared': path.resolve(__dirname, 'src/shared/index.ts'),

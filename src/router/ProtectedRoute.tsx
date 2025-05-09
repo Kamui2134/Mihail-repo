@@ -1,11 +1,18 @@
-import { Navigate, Outlet } from 'react-router-dom'
+import { Navigate, Outlet, useLocation } from 'react-router-dom'
 import { isAuthenticated } from '@features'
 import { Header } from '@widgets'
+import { pathsAfterRegistration } from '@entities'
 
 const ProtectedRoute = ({ redirectPath = '/registration' }) => {
-	// if (!isAuthenticated()) {
-	// 	return <Navigate to={redirectPath} replace />
-	// }
+	const location = useLocation()
+
+	if (
+		!isAuthenticated() ||
+		!pathsAfterRegistration.includes(location.pathname)
+	) {
+		return <Navigate to={redirectPath} replace />
+	}
+
 	return (
 		<>
 			<Header />

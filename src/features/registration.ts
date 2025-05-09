@@ -1,6 +1,10 @@
 import { useState, useCallback, ChangeEvent, FormEvent, useRef } from 'react'
 import { api, useDebounce } from '@features'
-import { RegistrationUserDataType, RegistrationBusinessDataType, RegistrationFieldNamesType } from '@entities'
+import {
+	RegistrationUserDataType,
+	RegistrationBusinessDataType,
+	RegistrationFieldNamesType,
+} from '@entities'
 import { toggleRegistrationModal, useAppDispatch } from '@store'
 import { useNavigate } from 'react-router-dom'
 
@@ -225,6 +229,7 @@ export const useRegistrationFormSubmission = () => {
 			const businessResponse = await api.createBusiness(businessData)
 			switch (businessResponse.status) {
 				case 200:
+					localStorage.setItem('business_id', businessResponse.data.data.id)
 					console.log('200 is Good!')
 					break
 				case 400:
@@ -300,7 +305,7 @@ export const useRegistrationCodeConfirmation = () => {
 				case 200:
 					console.log('200 is Good!')
 					dispatch(toggleRegistrationModal())
-					navigate('/users')
+					navigate('/dashboard', { replace: true })
 					break
 				case 204:
 					console.log('204 is Good!')

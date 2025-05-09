@@ -12,7 +12,6 @@ interface FormInputProps {
 	inputName: string
 	errorValue: string
 	isValid: boolean
-	onKeyDown?: (event: KeyboardEvent<HTMLInputElement>) => void
 }
 
 export default function FormInput({
@@ -24,23 +23,28 @@ export default function FormInput({
 	inputName,
 	errorValue,
 	isValid,
-	onKeyDown,
 }: FormInputProps) {
 	return (
-		<div className='input-container'>
-			<div className='input-container__header'>
-				<div className='input-container__left'>
-					<p className='input-container__input-name'>{inputName}</p>
+		<div className='input-form-container'>
+			<div className='input-form-container__header'>
+				<div className='input-form-container__left'>
+					<p className='input-form-container__input-name'>{inputName}</p>
 					<Image
-						className={`input-container__success ${isValid ? 'active' : ''}`}
+						className={`input-form-container__success ${
+							isValid ? 'active' : ''
+						}`}
 						src={Success}
 						alt='success'
 						width={16}
 						height={16}
 					/>
 				</div>
-				<div className='input-container__right'>
-					<p className={`input-container__error ${errorValue ? 'active' : ''}`}>
+				<div className='input-form-container__right'>
+					<p
+						className={`input-form-container__error ${
+							errorValue ? 'active' : ''
+						}`}
+					>
 						{errorValue}
 					</p>
 				</div>
@@ -54,7 +58,6 @@ export default function FormInput({
 				type={type}
 				name={name}
 				placeholder={placeholder}
-				onKeyDown={onKeyDown}
 			/>
 		</div>
 	)

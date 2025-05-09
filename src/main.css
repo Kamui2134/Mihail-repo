@@ -8,11 +8,17 @@
 	--color-gray-3: #c8c8c8;
 	--color-gray-4: #3d3d4b;
 	--color-gray-5: #e0e0e0;
+	--color-gray-6: #fcfcff;
+	--color-gray-7: #606060;
 	--color-orange-1: #ff7360;
 	--color-blue-1: #1627fe;
 	--color-purple-1: #626cef;
 	--color-purple-2: #dbdfff;
 	--color-purple-3: #f6f7ff;
+	--color-purple-4: #2b286c;
+	--color-purple-5: #e3e3f4;
+	--color-purple-6: #d7d7ef;
+	--color-purple-7: #ebebf5;
 	--color-gradient-purple-1: linear-gradient(
 		to right,
 		#aeb5f6 0%,
@@ -29,6 +35,16 @@
 		#eef0f2 47%,
 		#f7eaf1 75%,
 		#f4f1ff 100%
+	);
+	--color-gradient-beige-1: linear-gradient(
+		to right,
+		#f7f7f7 0%,
+		#eef0f2 10%,
+		#eff1f7 20%,
+		#eae8f6 50%,
+		#f3e6f1 70%,
+		#f7eaf1 80%,
+		#f4eaee 100%
 	);
 
 	--color-translucent-1: rgba(0, 0, 0, 0.4);
@@ -57,7 +73,9 @@
 		var(--fontFamily-Inter);
 	--font-text-tall-bold: normal var(--weight-medium) var(--fontSize-18)
 		var(--fontFamily-Inter);
-	--font-text-pre-tall: normal var(--weight-medium) var(--fontSize-16)
+	--font-text-pre-tall-bold: normal var(--weight-medium) var(--fontSize-16)
+		var(--fontFamily-Inter);
+	--font-text-pre-tall: normal var(--weight-regular) var(--fontSize-16)
 		var(--fontFamily-Inter);
 	--font-text: normal var(--weight-regular) var(--fontSize-15)
 		var(--fontFamily-Inter);
@@ -87,6 +105,10 @@
 	--color-background-secondary: var(--color-purple-3);
 	--color-background-third: var(--color-gradient-pink-1);
 	--color-background-fourth: var(--color-translucent-1);
+	--color-background-fifth: var(--color-orange-1);
+	--color-background-sixth: var(--color-gradient-beige-1);
+	--color-background-seventh: var(--color-gray-6);
+	--color-background-eighth: var(--color-purple-7);
 
 	/* TextOrIcon */
 	--color-textoricon-primary: var(--color-black-1);
@@ -94,11 +116,17 @@
 	--color-textoricon-third: var(--color-black-2);
 	--color-textoricon-forth: var(--color-gray-1);
 	--color-textoricon-fifth: var(--color-purple-1);
+	--color-textoricon-sixth: var(--color-orange-1);
+	--color-textoricon-seventh: var(--color-purple-4);
+	--color-textoricon-eighth: var(--color-gray-4);
+	--color-textoricon-ninth: var(--color-gray-7);
 
 	/* BorderAndDivider */
 	--color-borderanddivider-primary: var(--color-purple-2);
 	--color-borderanddivider-secondary: var(--color-gradient-purple-1);
 	--color-borderanddivider-third: var(--color-gray-5);
+	--color-borderanddivider-forth: var(--color-purple-5);
+	--color-borderanddivider-fifth: var(--color-purple-6);
 
 	/* Buttons */
 	--color-buttons-primary: var(--color-gradient-orange-1);
@@ -194,4 +222,6 @@ body {
 	width: 100%;
 	height: 100%;
 	min-height: 100vh;
+	display: flex;
+	flex-direction: column;
 }

@@ -34,7 +34,7 @@
 	gap: 12px;
 }
 .modal__form-text {
-	font: var(--font-text-pre-tall);
+	font: var(--font-text-pre-tall-bold);
 	color: var(--color-textoricon-third);
     width: 100%;
     text-align: center;

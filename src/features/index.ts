@@ -7,12 +7,14 @@ export {
 	useRegistrationBusinessWebsiteValidation,
 	useRegistrationFormSubmission,
 	useRegistrationCodeConfirmation,
-} from './register'
+} from './registration'
 export {
 	useLoginUserEmailValidation,
 	useLoginPasswordValidation,
-	useLoginFormSubmission
+	useLoginFormSubmission,
 } from './login'
-export { isAuthenticated, logout } from './keyCheck'
+export { isAuthenticated, useLogout } from './keyCheck'
 export { useDebounce } from './useDebounce'
 export { api } from './apiClient'
+export { useCustomersSorting, useCustomersSearching } from './customers'
+export { useBarAnalyticsStats } from './analytics'

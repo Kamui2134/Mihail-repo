@@ -1,3 +1,5 @@
 export { default as Login } from './Login/Login'
 export { default as Registration } from './Registration/Registration'
-export { default as Users } from './Users/Users'
+export { default as Customers } from './Customers/Customers'
+export { default as Dashboard } from './Dashboard/Dashboard'
+export { default as Cards } from './Cards/Cards'

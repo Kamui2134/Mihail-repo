@@ -7,7 +7,7 @@
 			"@entities": ["src/entities/index.ts"],
 			"@features": ["src/features/index.ts"],
 			"@fonts": ["src/fonts/index.ts"],
-			"@images": ["src/images/index.ts"],
+			"@images": ["src/images/"],
 			"@pages": ["src/pages/index.ts"],
 			"@router": ["src/router/index.ts"],
 			"@shared": ["src/shared/index.ts"],

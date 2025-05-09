@@ -1,14 +1,15 @@
 import { ChangeEvent, FocusEvent, KeyboardEvent } from 'react'
 
 interface InputProps {
-	className?: string
+	className: string
 	value: string
 	onChange?: (event: ChangeEvent<HTMLInputElement>) => void
 	type: string
 	name: string
 	placeholder?: string
-	onKeyDown?: (event: KeyboardEvent<HTMLInputElement>) => void
 	isDisabled?: boolean
+	onBlur?: (event: FocusEvent<HTMLInputElement>) => void
+	onKeyDown?: (event: KeyboardEvent<HTMLInputElement>) => void
 }
 
 export default function Input({
@@ -18,8 +19,9 @@ export default function Input({
 	type,
 	name,
 	placeholder,
-	onKeyDown,
 	isDisabled,
+	onBlur,
+	onKeyDown,
 }: InputProps) {
 	return (
 		<input
@@ -29,8 +31,9 @@ export default function Input({
 			type={type}
 			name={name}
 			placeholder={placeholder}
-			onKeyDown={onKeyDown}
 			disabled={isDisabled}
+			onBlur={onBlur}
+			onKeyDown={onKeyDown}
 		/>
 	)
 }

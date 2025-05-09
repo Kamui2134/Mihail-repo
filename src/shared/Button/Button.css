@@ -1,0 +1,35 @@
+.button {
+}
+/* CONTINUE-BUTTON */
+.button--continue {
+	font: var(--font-btn);
+	line-height: var(--lineHeight-btn);
+	background: var(--color-buttons-primary);
+	border-radius: 100px;
+}
+/* CANCEL-BUTTON */
+.button--cancel {
+}
+/* ADD-CARD-BUTTON */
+.button--add-card {
+	font: var(--font-btn);
+	line-height: var(--lineHeight-btn);
+	color: var(--color-white);
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	gap: 10px;
+	font: var(--font-btn);
+	line-height: var(--lineHeight-btn);
+	background: var(--color-buttons-primary);
+	border-radius: 100px;
+	padding: 9px 27px;
+}
+.button__add-card-img {
+	width: 31px;
+	height: 31px;
+	object-fit: contain;
+}
+/* ICON-BUTTON */
+.button--icon {
+}

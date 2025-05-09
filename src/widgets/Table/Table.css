@@ -1,0 +1,132 @@
+.table {
+	width: 100%;
+	/* В наших реалях не ос */
+	height: 100%;
+	flex: 1;
+	background-color: var(--color-background-seventh);
+	border-radius: 10px;
+	border: 1px solid var(--color-borderanddivider-forth);
+	padding: 30px 0;
+	display: flex;
+	flex-direction: column;
+}
+.table__settings {
+	width: 100%;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	padding: 0 38px;
+	margin-bottom: 26px;
+}
+.table__sorting {
+	display: flex;
+	align-items: center;
+	gap: 22px;
+}
+.table__sorting-title {
+	font: var(--font-text-pre-tall-bold);
+	line-height: var(--lineHeight-text-pre-tall);
+	color: var(--color-textoricon-primary);
+}
+.table__sorting-list {
+	display: flex;
+	gap: 16px;
+}
+.table__sorting-element {
+	font: var(--font-text-pre-tall);
+	line-height: var(--lineHeight-text-pre-tall);
+	color: var(--color-textoricon-primary);
+}
+.table__head {
+	width: 100%;
+	margin-bottom: 12px;
+	padding: 0 38px;
+}
+.table__head-container {
+	width: 100%;
+	background-color: var(--color-background-eighth);
+	padding: 15px 24px;
+	overflow-x: hidden;
+	border-radius: 10px;
+	display: flex;
+	align-items: center;
+	gap: 10px;
+}
+.table__head-cell {
+	display: flex;
+	align-items: center;
+	gap: 6px;
+	flex-basis: calc((100% - 10px * 4) / 5);
+	min-width: calc((100% - 10px * 4) / 5);
+}
+.table__head-text {
+	font: var(--font-text-pre-tall-bold);
+	line-height: var(--lineHeight-text-pre-tall);
+	color: var(--color-textoricon-eighth);
+}
+.table__head-img {
+	width: 12px;
+	height: 12px;
+	object-fit: contain;
+}
+.table__body {
+	width: 100%;
+	flex-grow: 1;
+	display: flex;
+	flex-direction: column;
+	padding: 0 38px;
+	height: calc(100% - 30px - 45px - 26px - 46px - 12px);
+}
+.table__body-container {
+	width: 100%;
+	flex-grow: 1;
+	overflow: auto;
+}
+/* Для WebKit-браузеров (Chrome, Safari, Edge) */
+.table__body-container::-webkit-scrollbar {
+	width: 10px;
+	height: 10px;
+	background: #d9d9ea;
+	border-radius: 10px
+}
+
+.table__body-container::-webkit-scrollbar-track {
+	border-radius: 10px;
+	width: 10px;
+	border: 2px solid transparent; /* Фикс для padding */
+	background-clip: content-box; /* Убирает внутренние отступы */
+}
+
+.table__body-container::-webkit-scrollbar-thumb {
+	background: #9696cc;
+	border-radius: 10px;
+	width: 10px;
+}
+/* Убираем все стрелки */
+.table__body-container::-webkit-scrollbar-button,
+.table__body-container::-webkit-scrollbar-button:vertical:start,
+.table__body-container::-webkit-scrollbar-button:vertical:end,
+.table__body-container::-webkit-scrollbar-button:horizontal:start,
+.table__body-container::-webkit-scrollbar-button:horizontal:end {
+	display: none;
+	width: 0;
+	height: 0;
+}
+
+/* Убираем стрелки */
+.table__body-container::-webkit-scrollbar-button {
+	display: none;
+}
+.table__body-row {
+	padding: 20px 24px;
+	border-bottom: 1px solid var(--color-borderanddivider-fifth);
+}
+.table__body-row-container {
+	display: flex;
+	gap: 10px;
+}
+.table__body-cell {
+	font: var(--font-text-pre-tall);
+	line-height: var(--lineHeight-text-pre-tall);
+	color: var(--color-textoricon-eighth);
+}

@@ -64,12 +64,12 @@ export default function Image({
 			style={{
 				backgroundImage: `url(${smallVersionSrc})`,
 				backgroundSize: bgSize,
-				backgroundPosition: bgPosition
+				backgroundPosition: bgPosition,
 			}}
 		>
 			<img
 				ref={imgRef}
-				className={className}
+				className='blur-load__img'
 				src={src}
 				alt={alt}
 				width={width}

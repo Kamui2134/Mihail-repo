@@ -2,7 +2,8 @@
 import { createBrowserRouter, RouterProvider, Navigate } from 'react-router-dom'
 import ProtectedRoute from './ProtectedRoute'
 import PublicRoute from './PublicRoute'
-import { Login, Users, NotFound, Registration } from '@pages'
+import { Login, Customers, Registration, Cards } from '@pages'
+import { Dashboard } from '@pages'
 
 const router = createBrowserRouter([
 	{
@@ -22,8 +23,16 @@ const router = createBrowserRouter([
 		element: <ProtectedRoute />,
 		children: [
 			{
-				path: '/users',
-				element: <Users />,
+				path: '/dashboard',
+				element: <Dashboard />,
+			},
+			{
+				path: '/cards',
+				element: <Cards/>,
+			},
+			{
+				path: '/customers',
+				element: <Customers />,
 			},
 			{
 				path: '*',

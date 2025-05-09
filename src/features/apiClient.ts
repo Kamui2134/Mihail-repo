@@ -1,4 +1,9 @@
-import { LoginUserDataType, RegistrationBusinessDataType, RegistrationUserDataType } from '@entities'
+import { CustomersDataType, CustomerType } from '@/entities/CustomersEntities'
+import {
+	LoginUserDataType,
+	RegistrationBusinessDataType,
+	RegistrationUserDataType,
+} from '@entities'
 import axios, { AxiosInstance, AxiosRequestConfig, AxiosResponse } from 'axios'
 
 const API_URL = 'http://localhost:1337/api/v1'
@@ -62,9 +67,7 @@ class ApiClient {
 		return this.post(`/auth/users/${user_id}/send-code`)
 	}
 
-	public async loginUser(
-		data: LoginUserDataType
-	): Promise<AxiosResponse<any>> {
+	public async loginUser(data: LoginUserDataType): Promise<AxiosResponse<any>> {
 		return this.post('/auth/users/login', data)
 	}
 
@@ -77,6 +80,23 @@ class ApiClient {
 				code: code,
 			},
 		})
+	}
+
+	public async getCustomers(
+		data: CustomersDataType
+	): Promise<AxiosResponse<any>> {
+		return this.get(`/api/v1/businesses/${data.business_id}/customers/`, {
+			params: {
+				sort: data.sort,
+				limit: data.limit,
+				offset: data.offset,
+			},
+		})
+	}
+	public async getBarAnalyticsStats(
+		business_id: string
+	): Promise<AxiosResponse<any>> {
+		return this.get(`api/v1/businesses/${business_id}/analytics/stats`)
 	}
 }
 

@@ -60,7 +60,7 @@ export const useLoginPasswordValidation = () => {
 
 export const useLoginFormSubmission = () => {
 	const [isDisabled, setIsDisabled] = useState<boolean>(false)
-    const navigate = useNavigate()
+	const navigate = useNavigate()
 
 	// Генерируем и сохраняем имена один раз при инициализации для небольшой защиты от ботов
 	const fieldNames = useRef<LoginFieldNamesType>({
@@ -87,7 +87,11 @@ export const useLoginFormSubmission = () => {
 			switch (loginResponse.status) {
 				case 200:
 					localStorage.setItem('user_id', loginResponse.data.data.id)
-                    navigate('/dashboard')
+					localStorage.setItem(
+						'business_id',
+						loginResponse.data.data.current_business_id
+					)
+					navigate('/dashboard', { replace: true })
 					break
 				case 400:
 					throw new Error('400, Bad Response')
